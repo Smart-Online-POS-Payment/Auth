@@ -1,6 +1,6 @@
 package com.sopp.auth.model
 
 data class LoginModel(
-    val userId: String,
+    val email: String,
     val password: String
 )

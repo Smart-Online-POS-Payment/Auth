@@ -2,3 +2,7 @@ spring:
   application.name: Auth
 server:
   port: 8080
+
+jwt:
+  secret-key: eyJhbGciOiJIUzI1NiJ9peyJSb2xlIjoiQWRtaW4iLCJJc3N1ZXIiOiJJc3N1ZXIiLCJVc2VybmFtZSI6IkphdmFJblVzZSIsImV4cCI6MTY5MTQ0Mzc2OCwiaWF0IjoxNjkxNDQzNzY4fQOSkiyRRo905eDBDdnxe8b0iT0aZtLj3bDwbqYzjj2ots
+  validity-in-milliseconds: 86400000
