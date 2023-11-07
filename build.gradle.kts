@@ -26,11 +26,20 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 
 	// Security
+
+
+	implementation("org.springframework.ws:spring-ws-core")
+	// Firebase
+	implementation("com.google.firebase:firebase-admin:9.1.1")
+	implementation("com.squareup.okhttp3:okhttp:4.9.1")
+
 	//kotlin
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
+	implementation("org.jsoup:jsoup:1.14.3")
+
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
 	testImplementation("io.projectreactor:reactor-test")
