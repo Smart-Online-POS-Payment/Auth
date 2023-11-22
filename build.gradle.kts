@@ -26,19 +26,16 @@ dependencies {
 	implementation("org.springframework.boot:spring-boot-starter-actuator")
 
 	// Security
-
+	implementation("org.springframework.boot:spring-boot-starter-oauth2-resource-server")
 
 	implementation("org.springframework.ws:spring-ws-core")
-	// Firebase
-	implementation("com.google.firebase:firebase-admin:9.1.1")
-	implementation("com.squareup.okhttp3:okhttp:4.9.1")
 
 	//kotlin
 	implementation("com.fasterxml.jackson.module:jackson-module-kotlin")
 	implementation("io.projectreactor.kotlin:reactor-kotlin-extensions")
 	implementation("org.jetbrains.kotlin:kotlin-reflect")
 	implementation("org.jetbrains.kotlinx:kotlinx-coroutines-reactor")
-	implementation("org.jsoup:jsoup:1.14.3")
+	implementation("org.jsoup:jsoup:1.15.4")
 
 
 	testImplementation("org.springframework.boot:spring-boot-starter-test")
@@ -47,6 +44,11 @@ dependencies {
 	implementation("io.jsonwebtoken:jjwt-api:0.11.5")
 	implementation("io.jsonwebtoken:jjwt-impl:0.11.5")
 	implementation("io.jsonwebtoken:jjwt-jackson:0.11.5")
+	implementation("com.squareup.okhttp3:okhttp:4.9.1")
+
+	//database
+	runtimeOnly("org.postgresql:postgresql")
+	implementation("org.springframework.boot:spring-boot-starter-data-jpa")
 }
 
 tasks.withType<KotlinCompile> {
