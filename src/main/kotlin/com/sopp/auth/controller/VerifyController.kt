@@ -1,6 +1,7 @@
 package com.sopp.auth.controller
 
 import com.sopp.auth.entity.VerifiedUserEntity
+import com.sopp.auth.model.ResponseModel
 import com.sopp.auth.model.VerifyUserModel
 import com.sopp.auth.service.VerifyService
 import org.springframework.web.bind.annotation.*
@@ -10,7 +11,7 @@ class VerifyController(
     private val verifyService: VerifyService,
 ) {
     @PostMapping
-    suspend fun verifyCustomer(@RequestBody body: VerifyUserModel): Boolean? {
+    suspend fun verifyCustomer(@RequestBody body: VerifyUserModel): ResponseModel {
         return verifyService.verifyCustomer(body)
     }
 
