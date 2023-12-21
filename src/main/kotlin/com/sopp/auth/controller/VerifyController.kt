@@ -7,6 +7,7 @@ import com.sopp.auth.service.VerifyService
 import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/verify")
+@CrossOrigin(origins = ["http://localhost:3000"])
 class VerifyController(
     private val verifyService: VerifyService,
 ) {
