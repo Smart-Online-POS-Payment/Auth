@@ -12,7 +12,7 @@ class VerifyController(
     private val verifyService: VerifyService,
 ) {
     @PostMapping
-    suspend fun verifyCustomer(@RequestBody body: VerifyUserModel): ResponseModel {
+    suspend fun verifyCustomer(@RequestBody body: VerifyUserModel): Boolean {
         return verifyService.verifyCustomer(body)
     }
 

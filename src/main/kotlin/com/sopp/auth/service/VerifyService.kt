@@ -27,16 +27,18 @@ class VerifyService(
         return verifiedUserRepository.findById(customerId).get()
     }
 
-    suspend fun verifyCustomer(request: VerifyUserModel): ResponseModel {
+    suspend fun verifyCustomer(request: VerifyUserModel): Boolean {
 
-        if(verifiedUserRepository.findByUserId(request.userId).isPresent)
-            return ResponseModel("409", "This user is already verified")
+        if(verifiedUserRepository.findByUserId(request.userId).isPresent){
+            println("Entered..")
+            return false
+        }
 
         val response = tcknClient.verifyTckn(TcknVerifyRequest(request))
         val responseBody = response.body?.string()
 
         if (! response.isSuccessful || responseBody == null) {
-            return ResponseModel("400", "User verification failed")
+            return false
         }
 
         if (soapResponseParserService.extractResultFromSoapResponse(responseBody)){
@@ -46,8 +48,8 @@ class VerifyService(
             }catch (e: Exception){
                 logger.error("Wallet creation error!")
             }
-            return ResponseModel("200","User verified")
+            return true
         }
-        return ResponseModel("400", "User verification failed")
+        return true
     }
 }
