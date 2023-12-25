@@ -25,7 +25,6 @@ jobs:
         with:
           name: homework
       - name: Build And Push Dockerfile
-        uses: actions/upload-artifact@v3
         run: |
             echo $GCP_SERVICE_ACCOUNT_BASE64 | base64 -d > /tmp/gcloud-service-key.json
             cat /tmp/gcloud-service-key.json | docker login europe-west2-docker.pkg.dev/sopp/backend -u _json_key --password-stdin
