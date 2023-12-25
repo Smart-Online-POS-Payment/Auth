@@ -4,7 +4,6 @@ RUN mkdir /app
 WORKDIR /app
 COPY . /app/
 
-RUN ./gradlew build
 COPY build/libs/auth.jar auth.jar
 
 ENV SPRING_PROFILES_ACTIVE=container
