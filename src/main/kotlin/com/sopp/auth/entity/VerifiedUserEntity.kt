@@ -17,8 +17,10 @@ data class VerifiedUserEntity(
     val phoneNumber: String,
     val openAddress: String,
     val city: String,
-    val country: String
+    val country: String,
 ) {
-    constructor(verifyUserModel: VerifyUserModel) : this(verifyUserModel.userId, verifyUserModel.tc, verifyUserModel.firstname, verifyUserModel.surname, verifyUserModel.email, verifyUserModel.phoneNumber, verifyUserModel.openAddress, verifyUserModel.city, verifyUserModel.country)
+    constructor(
+        verifyUserModel: VerifyUserModel,
+    ) : this(verifyUserModel.userId, verifyUserModel.tc, verifyUserModel.firstname, verifyUserModel.surname, verifyUserModel.email, verifyUserModel.phoneNumber, verifyUserModel.openAddress, verifyUserModel.city, verifyUserModel.country)
     constructor() : this("1234", 12L, "", "", "", "", "", "", "")
 }

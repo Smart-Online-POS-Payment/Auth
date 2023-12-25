@@ -9,7 +9,7 @@ import org.springframework.web.reactive.function.client.awaitBody
 @Service
 class WalletClient(
     @Qualifier("walletWebClient")
-    val client: WebClient
+    val client: WebClient,
 ) {
     suspend fun createWallet(customerId: String) {
         client

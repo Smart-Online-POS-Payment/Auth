@@ -10,5 +10,5 @@ data class VerifyUserModel(
     val birthYear: Int,
     val openAddress: String,
     val city: String,
-    val country: String = "Turkey"
+    val country: String = "Turkey",
 )

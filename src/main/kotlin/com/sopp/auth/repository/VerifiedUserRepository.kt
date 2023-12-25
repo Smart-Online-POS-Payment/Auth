@@ -6,6 +6,6 @@ import org.springframework.stereotype.Repository
 import java.util.Optional
 
 @Repository
-interface VerifiedUserRepository: CrudRepository<VerifiedUserEntity, String> {
+interface VerifiedUserRepository : CrudRepository<VerifiedUserEntity, String> {
     fun findByUserId(userId: String): Optional<VerifiedUserEntity>
 }

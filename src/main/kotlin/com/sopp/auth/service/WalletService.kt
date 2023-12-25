@@ -5,10 +5,9 @@ import org.springframework.stereotype.Service
 
 @Service
 class WalletService(
-    private val walletClient: WalletClient
+    private val walletClient: WalletClient,
 ) {
-
-    suspend fun createWallet(customerId: String){
+    suspend fun createWallet(customerId: String)  {
         walletClient.createWallet(customerId)
     }
 }

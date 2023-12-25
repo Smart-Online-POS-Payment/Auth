@@ -10,7 +10,6 @@ import org.springframework.stereotype.Component
 
 @Component
 class TcknClient {
-
     fun verifyTckn(request: TcknVerifyRequest): Response {
         val client = OkHttpClient()
 
@@ -18,11 +17,12 @@ class TcknClient {
 
         val body = RequestBody.create(mediaType, generateSoapRequestXml(request))
 
-        val request = Request.Builder()
-            .url("https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx")
-            .method("POST", body)
-            .addHeader("Content-Type", "application/soap+xml; charset=utf-8")
-            .build()
+        val request =
+            Request.Builder()
+                .url("https://tckimlik.nvi.gov.tr/Service/KPSPublic.asmx")
+                .method("POST", body)
+                .addHeader("Content-Type", "application/soap+xml; charset=utf-8")
+                .build()
         return client.newCall(request).execute()
     }
 

@@ -1,0 +1,33 @@
+name: Build and publish
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  build:
+    runs-on: gradle:8.5.0-jdk21
+    steps:
+      - name: Build Project
+        run: |
+          ./gradlew --build-cache assemble
+      - name: Upload Artifacts
+        uses: actions/upload-artifact@v3
+        with:
+          name: buildfile
+          path: |
+            build/libs/auth.jar
+  deploy:
+    runs-on: docker
+    steps:
+      - name: Download Artifacts
+        uses: actions/download-artifact@v3
+        with:
+          name: homework
+      - name: Build And Push Dockerfile
+        uses: actions/upload-artifact@v3
+        run: |
+            echo $GCP_SERVICE_ACCOUNT_BASE64 | base64 -d > /tmp/gcloud-service-key.json
+            cat /tmp/gcloud-service-key.json | docker login europe-west2-docker.pkg.dev/sopp/backend -u _json_key --password-stdin
+            docker build -t europe-west2-docker.pkg.dev/sopp/backend/core:${CI_COMMIT_TAG} .
+            docker push europe-west2-docker.pkg.dev/sopp/backend/core:${CI_COMMIT_TAG}
